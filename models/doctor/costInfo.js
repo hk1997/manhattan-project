@@ -3,13 +3,13 @@ const schema = mongoose, schema
 
 var costInfo = new schema({
     virtualCall: {
-        type: String
+        type: Number
     },
     physicalExamination: {
-        type: String
+        type: Number
     },
     emergencycharges: {
-        types: String
+        types: Number
     }
 })
 

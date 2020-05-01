@@ -22,7 +22,7 @@ module.exports.initializePartialData = (fields, req) => {
   fields.forEach(field => {
     if (req.body[field]) data[field] = req.body[field];
   });
-  return data;
+  return { data: data };
 };
 
 // generating jwt tokens

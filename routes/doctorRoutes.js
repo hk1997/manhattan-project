@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const authController = require("../controllers/doctor/auth/authController");
+const profileController = require('../controllers/doctor/profile/profileController');
 const helpers = require("../controllers/helpers");
 
 
@@ -33,5 +34,21 @@ router.post("/auth/verify-otp", authController.verifyOtp);
 router.post("/checkLogin", helpers.checkLogin, (req, res) => {
 	res.json(req.payload);
 });
+
+/*
+*/
+router.post("/update-profile", helpers.checkLogin, profileController.updateProfile);
+
+/*
+*/
+router.post("/get-profile", helpers.checkLogin, profileController.getProfile);
+
+/*
+*/
+router.post("/delete-profile", helpers.checkLogin, profileController.deleteProfile);
+
+/*
+*/
+router.post("/list-profile", helpers.checkLogin, profileController.listProfile);
 
 module.exports = router;

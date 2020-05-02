@@ -13,7 +13,7 @@ module.exports.updateProfile = async (id, data) => {
                 data: {}
             }
         }
-        await doctorInfo.updateOne({ _id: id }, { $set: data });
+        await doctorInfo.updateOne({ doctorId: id }, { $set: data });
         return {
             success: true,
             message: 'successfully updated',

@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const authController = require("../controllers/doctor/auth/authController");
+const profileController = require('../controllers/doctor/profile/profileController');
 const helpers = require("../controllers/helpers");
 
 
@@ -33,5 +34,28 @@ router.post("/auth/verify-otp", authController.verifyOtp);
 router.post("/checkLogin", helpers.checkLogin, (req, res) => {
 	res.json(req.payload);
 });
+
+/* Create and update doctorInfo
+body: {"name", "qualifications", "clinic", "specialization", "profileImage"}
+response: success status, a message and data field (currently empty)
+*/
+router.post("/update-profile", helpers.checkLogin, profileController.updateProfile);
+
+/*get doctorInfo of a doctor
+doctorId taken from req.payload._id
+response: success status, a message and data field having the doctorInfo
+*/
+router.post("/get-profile", helpers.checkLogin, profileController.getProfile);
+
+/*deleting doctorInfo
+doctorId taken from the req.payload._id
+response: success status, a message and a data field(currently empty)
+*/
+router.post("/delete-profile", helpers.checkLogin, profileController.deleteProfile);
+
+/*listing all documents of collection doctorInfo
+response: success status, a message and data:{profile:[array of profiles]}
+*/
+router.post("/list-profile", helpers.checkLogin, profileController.listProfile);
 
 module.exports = router;

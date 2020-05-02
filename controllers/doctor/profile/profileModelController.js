@@ -5,6 +5,7 @@ module.exports.updateProfile = async (id, data) => {
         let doctor = await doctorInfo.findOne({ doctorId: id });
         if (!doctor) {
             doctor = new doctorInfo(data);
+            doctor.doctorId = id;
             let profileId = await doctor.save();
             return {
                 success: true,
@@ -30,7 +31,9 @@ module.exports.updateProfile = async (id, data) => {
 
 module.exports.getProfile = async (id) => {
     try {
-        let profile = await doctorInfo.findOne({ doctorId: id });
+        let profile = await doctorInfo.findOne({ doctorId: id })
+            .populate("doctorId")
+            .populate("specialization");
         if (!profile) {
             return {
                 success: false,
@@ -38,9 +41,6 @@ module.exports.getProfile = async (id) => {
                 data: {}
             }
         }
-        profile
-            .populate("doctorId")
-            .populate("specialization");
         return {
             success: true,
             message: 'profile found',

@@ -36,7 +36,7 @@ router.post("/checkLogin", helpers.checkLogin, (req, res) => {
 });
 
 /* Create and update doctorInfo
-body: {"doctorId", "name", "qualifications", "clinic", "specialization", "profileImage"}
+body: {"name", "qualifications", "clinic", "specialization", "profileImage"}
 response: success status, a message and data field (currently empty)
 */
 router.post("/update-profile", helpers.checkLogin, profileController.updateProfile);

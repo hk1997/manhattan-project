@@ -3,7 +3,7 @@ const profileModelController = require('../profile/profileModelController');
 
 module.exports.updateProfile = async (req, res) => {
     try {
-        let fields = ["doctorId", "name", "qualifications", "clinic", "specialization", "profileImage"];
+        let fields = ["name", "qualifications", "clinic", "specialization", "profileImage"];
         let modelData = helpers.initializePartialData(fields, req);
         let response = await profileModelController.updateProfile(req.payload._id, modelData.data);
         return res.json(response);
@@ -49,7 +49,7 @@ module.exports.deleteProfile = async (req, res) => {
 module.exports.listProfile = async (req, res) => {
     try {
         let response = await profileModelController.listProfile();
-        return res.json(data);
+        return res.json(response);
     } catch (err) {
         console.log(err);
         return res.json({

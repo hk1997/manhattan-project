@@ -76,6 +76,9 @@ module.exports.verifyOtp = async (req, res, next) => {
   };
   try {
     const found = await db.getItem(params).promise();
+    if (found.Item == null) {
+      return { success: false, message: 'invalid mobile number or otp expired', data: {} };
+    }
     let d = {};
     //extracting into a better format
     Object.keys(found.Item).forEach(item => {
@@ -115,7 +118,7 @@ const generateAndSendOTP = async (phone, currentTries) => {
     }
   };
 
-  const text = `${OTP} is the one time password(OTP) for your login in the ZOUDIY App. Validity of OTP is 5 minutes. Please don't share it with anyone`;
+  const text = `${OTP} is the one time password(OTP) for your login in the SAHAYAK App. Validity of OTP is 5 minutes. Please don't share it with anyone`;
 
   const snsParams = {
     Message: text,

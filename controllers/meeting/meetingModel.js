@@ -28,10 +28,10 @@ module.exports.addMeetingSlots = async (doctorId, data) => {
   }
 };
 
-module.exports.getMeetingSlotsDoctor = async (doctorId, data) => {
+module.exports.getMeetingSlotsDoctor = async (data) => {
   try {
     let meetings = await meetingSlots.find({
-      doctorId: doctorId,
+      doctorId: data['doctorId'],
       date: new Date(data["date"]).toDateString(),
       available: data["available"],
     });

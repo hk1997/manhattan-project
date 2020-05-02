@@ -29,7 +29,7 @@ module.exports.addMeetingSlots = async (req, res) => {
 
 module.exports.getMeetingSlotsDoctor = async (req, res) => {
   try {
-    let requiredFields = ["date", "available"];
+    let requiredFields = ["date", "available","doctorId"];
     let initializeData = await helpers.initializeData(requiredFields, req);
     if (!initializeData["valid"]) {
       return res.json({

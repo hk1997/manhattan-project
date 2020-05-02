@@ -23,7 +23,6 @@ router.post(
  */
 router.post(
   "/get-meeting-slots-doctor",
-  helpers.checkLogin,
   meetingController.getMeetingSlotsDoctor
 );
 

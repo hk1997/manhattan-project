@@ -17,3 +17,6 @@ module.exports.aws = {
 	REGION: "ap-south-1"
 };
 
+module.exports.bucketDetails={
+	BUCKET_NAME:"hk-manhattan-project"
+}

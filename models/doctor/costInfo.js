@@ -1,15 +1,23 @@
 const mongoose = require('mongoose')
-const schema = mongoose, schema
+const schema = mongoose.Schema
 
 var costInfo = new schema({
-    virtualCall: {
-        type: Number
+    doctorId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Doctor"
     },
-    physicalExamination: {
-        type: Number
-    },
-    emergencycharges: {
-        types: Number
+    charges: {
+        type: {
+            virtualCall: {
+                type: Number
+            },
+            physicalExamination: {
+                type: Number
+            },
+            emergencyCharges: {
+                types: Number
+            }
+        }
     }
 })
 

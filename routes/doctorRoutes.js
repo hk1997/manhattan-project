@@ -58,4 +58,50 @@ response: success status, a message and data:{profile:[array of profiles]}
 */
 router.post("/list-profile", helpers.checkLogin, profileController.listProfile);
 
+/*updating the paymentInfo for a doctor
+body: {accountNo:SBINX49666O525,ifscCode:12118}
+response: success status, a message and data: {paymentInfoId: qeqd31dw91331dwd1}
+*/
+router.post("/update-payment-info", helpers.checkLogin, profileController.updatePaymentInfo);
+
+/*geting payment info of a doctor
+doctorId taken fron req.payload._id
+response: success status, a message and data :{accountNo:SBINX49666O525,ifscCode:12118}
+*/
+router.post("/get-payment-info", helpers.checkLogin, profileController.getPaymentInfo);
+
+/*delete paymentInfo of a doctor
+doctorId taken from req.payload._id
+response: success status, a message and data field(currently empty)
+*/
+router.post("/delete-payment-info", helpers.checkLogin, profileController.deletePaymentInfo);
+
+/*listing all documents in paymentInfo
+respose: success staus, a message and data:{list:[{paymentInfo}]}
+*/
+router.post("/list-payment-info", helpers.checkLogin, profileController.listPaymentInfo);
+
+/*updatingcostInfo of a doctor
+body:{charges:{virtualCall:400, physicalExamination:600, emergencyCharges:1000}
+response: success status, a message and data:{costInfoId: wdwd5e1d1ded1a3d45}
+*/
+router.post("/update-cost-info", helpers.checkLogin, profileController.updateCostInfo);
+
+/*getting the costInfo of a doctor
+doctorId taken fron req.payload._id
+response: success status, a message and data :{virtualCall:400, physicalExamination:600, emergencyCharges:1000}
+*/
+router.post("/get-cost-info", helpers.checkLogin, profileController.getCostInfo);
+
+/*delete costInfo of a doctor
+doctorId taken from req.payload._id
+response: success status, a message and data field(currently empty)
+*/
+router.post("/delete-cost-info", helpers.checkLogin, profileController.deleteCostInfo);
+
+/*listing all documents in costInfo
+respose: success staus, a message and data:{list:[{costInfo}]}
+*/
+router.post("/list-cost-info", helpers.checkLogin, profileController.listCostInfo);
+
 module.exports = router;

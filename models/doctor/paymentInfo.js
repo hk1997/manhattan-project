@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const schema = mongoose.schema
+const schema = mongoose.Schema
 
 var paymentInfo = new schema({
     doctorId: {
@@ -18,4 +18,4 @@ var paymentInfo = new schema({
     }
 })
 
-module.exports = mongoose.schema('PaymentInfo', paymentInfo)
+module.exports = mongoose.model('PaymentInfo', paymentInfo)

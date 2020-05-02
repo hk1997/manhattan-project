@@ -21,7 +21,6 @@ module.exports.addSpecialization = async (name) => {
 
 module.exports.deleteSpecialization = async (data) => {
     try {
-        console.log(data.specializationId);
         await specialization.deleteOne({ _id: data.specializationId });
         return {
             success: true,

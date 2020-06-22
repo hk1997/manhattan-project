@@ -1,6 +1,6 @@
 module.exports.db_config = {
 	CONNECTION_STRING:
-		"mongodb+srv://hk:hk@cluster0-se4fv.gcp.mongodb.net/test?retryWrites=true&w=majority"
+		""
 };
 
 module.exports.jwt_secret = {
@@ -12,11 +12,11 @@ module.exports.otp_table = {
 };
 
 module.exports.aws = {
-	ACCESS_ID: "AKIAS5V5YYQR4JWCHROQ",
-	ACCESS_SECRET: "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",
-	REGION: "ap-south-1"
+	ACCESS_ID: "",
+	ACCESS_SECRET: "",
+	REGION: ""
 };
 
 module.exports.bucketDetails={
-	BUCKET_NAME:"hk-manhattan-project"
+	BUCKET_NAME:""
 }
